@@ -1,10 +1,10 @@
-#Projeto Criaive 
+# Projeto Criaive 
 
-##O que é necessario ?
- ####Java 
+## O que é necessario ?
+ #### Java 
  openjdk 18.0.2 
  
 
- ####React 
+ #### React 
  Node V19.0.0
  
