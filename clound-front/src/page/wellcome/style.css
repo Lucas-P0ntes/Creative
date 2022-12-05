@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.boxpage{
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    margin: 10px;
+    ;
+}
+.img_page{
+    width: 300px;
+    height: 300px;
+    border-radius: 2px;
+}
+.card-wellcome{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+   
+    
+    
+    ;
+}

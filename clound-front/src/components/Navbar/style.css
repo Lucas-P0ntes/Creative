@@ -1,0 +1,43 @@
+.bigBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 80px;
+    box-shadow: 1px 1px 10px 1px  rgb(194, 127, 253);
+}
+.h1-navbar{
+    color:rgb(184, 77, 255);
+}
+.smallbox{  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+}
+img{
+    height: 50px;
+}
+.Link{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 30px;
+    box-shadow: 1px 1px 1px 2px rgb(184, 77, 255);
+    background-color: rgb(184, 77, 255);
+    border: none;
+    padding: 1px;
+    outline: 0;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+   
+    color: #fff;    
+
+}

@@ -1,0 +1,18 @@
+.input_busca{
+    width: 500px;
+    height: 30px;
+    box-shadow: 1px 1px 1px 2px rgb(184, 77, 255);
+    border: none;
+    margin: 10px;
+    outline: 0;
+    
+}
+.input{
+    width: 300px;
+    height: 30px;
+    box-shadow: 1px 1px 1px 2px rgb(184, 77, 255);
+    border: none;
+    margin: 10px;
+    outline: 0;
+    
+}

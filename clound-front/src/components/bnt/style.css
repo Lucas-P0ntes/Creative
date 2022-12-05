@@ -1,0 +1,16 @@
+.bntNavBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    min-height: 35px;
+    box-shadow: 1px 1px 1px 2px rgb(184, 77, 255);
+    background-color: rgb(184, 77, 255);
+    border: none;
+    margin: 10px;
+    outline: 0;
+    font-size: 20px;
+    font-weight: 500;
+   
+    color: #fff;    
+}
