@@ -4,6 +4,7 @@ import com.example.cloundbackend.model.ImageModel;
 import com.example.cloundbackend.service.IImage;
 
 import org.apache.catalina.core.ApplicationContext;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -43,16 +44,18 @@ public class ImageController {
 
     //Enviar imagem
     @PostMapping(value="/image", consumes= {MediaType.APPLICATION_JSON_VALUE,   MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<String> save(@RequestPart("file") MultipartFile file , RedirectAttributes redirectAttributes){
+    public ResponseEntity<String> save(@RequestPart("file") MultipartFile file , RedirectAttributes redirectAttributes
+                                       ){
         try {
             // Get the file and save it somewhere
             byte[] bytes = file.getBytes();
-            String UPLOADED_FOLDER = "C://Clound//Clound-backend//src//main//resources//img//";
+            String UPLOADED_FOLDER = "C://Clound//Clound-backend//src//main//java//com//example//cloundbackend//img//";
             Path path = Paths.get(UPLOADED_FOLDER +  file.getOriginalFilename());
             Files.write(path, bytes);
             ImageModel res  ;
             res = new ImageModel();
             res.setImg(file.getOriginalFilename());
+            res.setName("lucas");
             service.enviarimg(res);
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
@@ -62,27 +65,26 @@ public class ImageController {
         return null;
     }
 
+private String FILE_PATH_ROOT = "C://Clound//Clound-backend//src//main//java//com//example//cloundbackend//img//";
+    @GetMapping(value ="/image/{nameImg}")
+    public ResponseEntity<byte[]> getImage(@PathVariable String nameImg) {
+        byte[] image = new byte[0];
+        try {
+            image = FileUtils.readFileToByteArray(new File(FILE_PATH_ROOT + nameImg));
 
-
-    //Buscar Imagem por nome
-    @RequestMapping(value = "/imagens/{nome}", method = RequestMethod.GET,
-            produces = MediaType.IMAGE_PNG_VALUE)
-    public @ResponseBody byte[] getFile(@PathVariable String nome) throws IOException {
-        InputStream in = getClass()
-                .getResourceAsStream("/com/example.cloundbackend/"+nome);
-        return IOUtils.toByteArray(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(image);
     }
-//    public ResponseEntity<byte[]> getImage(@PathVariable String nome) throws IOException {
-////
-//
-//
-//        byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
-//        return ResponseEntity
-//                .ok()
-//                .contentType(MediaType.IMAGE_PNG )
-//                .body(bytes);
-//    }
+
+
     //Apagar imagem
+    @DeleteMapping(value = "/image/{id}")
+    public ResponseEntity<ImageModel> deletar(@PathVariable Integer id){
+          ImageModel  res = service.exlcuirimg(id);
+        return null;
+    }
 
     //Alterar imagem
 

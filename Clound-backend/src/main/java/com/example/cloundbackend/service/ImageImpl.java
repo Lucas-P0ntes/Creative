@@ -25,4 +25,10 @@ public class ImageImpl implements IImage {
         return null;
 
     }
+    @Override
+    public ImageModel exlcuirimg(Integer id){
+        dao.deleteById(id);
+        return null;
+
+    }
 }

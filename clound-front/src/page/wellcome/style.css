@@ -11,9 +11,9 @@
     ;
 }
 .img_page{
-    width: 300px;
+    width: 270px;
     height: 300px;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 .card-wellcome{
     display: flex;
